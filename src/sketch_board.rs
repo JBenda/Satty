@@ -155,12 +155,12 @@ impl SketchBoard {
         };
 
         if !output_filename.ends_with(".png") {
-            let msg = "The only supported format is png, but the filename does not end in png";
-            println!("{msg}");
+            let msg = "The only supported format is png, but the filename does not end in png, it will be written png not then less";
+            // println!("{msg}");
             sender
                 .output_sender()
                 .emit(SketchBoardOutput::ShowToast(msg.to_string()));
-            return;
+            // return;
         }
 
         let texture = match self.renderer.render_to_texture(&self.active_tool) {
